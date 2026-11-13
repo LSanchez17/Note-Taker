@@ -372,3 +372,53 @@ button:disabled {
     padding: 16px 8px 32px;
   }
 }
+
+/* Code block syntax highlighting (highlight.js token classes) */
+.hljs-comment,
+.hljs-quote {
+  color: #7f8aa8;
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag {
+  color: #c792ea;
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition {
+  color: #a5e075;
+}
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet {
+  color: #f78c6c;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #82aaff;
+}
+.hljs-built_in,
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #ffcb6b;
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-property {
+  color: #89ddff;
+}
+.hljs-meta,
+.hljs-deletion {
+  color: #ff757f;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}

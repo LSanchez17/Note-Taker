@@ -2,6 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { Markdown } from '@tiptap/markdown';
+import { CodeBlock } from './codeBlock';
 import { invoke, isTauri } from '@tauri-apps/api/core';
 import { open, save } from '@tauri-apps/plugin-dialog';
 import {
@@ -14,6 +15,7 @@ import {
   List,
   ListOrdered,
   Quote,
+  SquareCode,
   Undo2,
   Redo2,
   FolderOpen,
@@ -58,7 +60,7 @@ export default function App() {
   };
 
   const editor = useEditor({
-    extensions: [StarterKit, Markdown, PageBreaks],
+    extensions: [StarterKit.configure({ codeBlock: false }), CodeBlock, Markdown, PageBreaks],
     contentType: 'markdown',
     editorProps: { attributes: { class: 'editor-body', spellcheck: 'true', 'aria-label': 'Markdown document editor' } },
     onUpdate: () => {
@@ -414,6 +416,13 @@ export default function App() {
             onClick={() => editor?.chain().focus().toggleBlockquote().run()}
           >
             <Quote size={18} />
+          </Tool>
+          <Tool
+            label="Code block"
+            active={!!editor?.isActive('codeBlock')}
+            onClick={() => editor?.chain().focus().toggleCodeBlock().run()}
+          >
+            <SquareCode size={18} />
           </Tool>
         </div>
         <div className="separator" />
